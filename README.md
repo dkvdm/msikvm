@@ -69,6 +69,23 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 Then unplug the monitor's USB cable and plug it back in.
 
+### Windows
+
+The script runs on Windows without extra drivers. Use `python` instead of `./`:
+
+```powershell
+uv run msikvm.py get       # with uv
+python msikvm.py get       # with pip
+```
+
+The `chmod` and symlink steps above don't apply.
+
+#### One-click switch to USB-C
+
+[`windows/usbc.exe`](windows/usbc.exe) is a standalone executable that runs `msikvm.py set usbc`. It doesn't need Python, and it doesn't open a console window. If something goes wrong, it shows an error dialog. Pin it to the taskbar, or create a shortcut to it and assign a key under the shortcut's Properties → Shortcut key.
+
+To rebuild it after changing the script, run [`windows\build.bat`](windows/build.bat). On first run it creates a virtual environment in `windows\.venv` with `hidapi` and `pyinstaller`, so you need Python 3.9 or newer.
+
 ## Usage
 
 ```
@@ -94,7 +111,7 @@ Connect a laptop over USB-C and a desktop over DisplayPort.
 
 Both computers need a USB connection to the monitor for this to work in both directions. If the monitor's built-in KVM moves the USB upstream along with the video input, only the computer currently on screen can send commands. In that case, run the command from the computer that is currently on screen.
 
-You can bind the command to a hotkey with Raycast, Alfred, or Shortcuts on macOS, AutoHotkey on Windows, or your desktop environment's keyboard settings on Linux.
+You can bind the command to a hotkey with Raycast, Alfred, or Shortcuts on macOS, AutoHotkey or a shortcut to [`usbc.exe`](#one-click-switch-to-usb-c) on Windows, or your desktop environment's keyboard settings on Linux.
 
 ## How it works
 
