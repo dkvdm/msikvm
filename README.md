@@ -32,7 +32,7 @@ To see whether your monitor has the device:
 [uv](https://docs.astral.sh/uv/) reads the dependency declared inside the script and installs it automatically on first run.
 
 ```sh
-git clone https://github.com/<you>/msikvm.git
+git clone https://github.com/dkvdm/msikvm.git
 cd msikvm
 chmod +x msikvm.py
 ./msikvm.py get
@@ -47,7 +47,7 @@ ln -s "$PWD/msikvm.py" ~/.local/bin/msikvm
 ### Option 2: with pip
 
 ```sh
-git clone https://github.com/<you>/msikvm.git
+git clone https://github.com/dkvdm/msikvm.git
 cd msikvm
 python3 -m pip install hidapi
 python3 msikvm.py get
